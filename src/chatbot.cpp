@@ -66,7 +66,7 @@ ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operat
     *_image = *source._image;
     return *this;
 }
-ChatBot::ChatBot(const ChatBot &&source)
+ChatBot::ChatBot(ChatBot &&source)
 {
     std::cout << "MOVING instance " << &source << " to instance " << this << std::endl;
     _image = source._image;
@@ -76,7 +76,7 @@ ChatBot::ChatBot(const ChatBot &&source)
     source._rootNode = nullptr;
     source._chatLogic = nullptr;
 }
-ChatBot &ChatBot::operator=(const ChatBot &&source)
+ChatBot &ChatBot::operator=( ChatBot &&source)
 {
     std::cout << "MOVING (assign) instance " << &source << " to instance " << this << std::endl;
     if (this == &source)
