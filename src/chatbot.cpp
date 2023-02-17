@@ -20,7 +20,7 @@ ChatBot::ChatBot()
 // constructor WITH memory allocation
 ChatBot::ChatBot(std::string filename)
 {
-    std::cout << "ChatBot Constructor" << std::endl;
+    std::cout << "ChatBot Constructor" << " to instance " << this<< std::endl;
     
     // invalidate data handles
     _chatLogic = nullptr;
@@ -32,19 +32,64 @@ ChatBot::ChatBot(std::string filename)
 
 ChatBot::~ChatBot()
 {
-    std::cout << "ChatBot Destructor" << std::endl;
-
-    // deallocate heap memory
+    std::cout << "ChatBot Destructor"<< " to instance " << this << std::endl;    // deallocate heap memory
     if(_image != NULL) // Attention: wxWidgets used NULL and not nullptr
-    {
+    {   
         delete _image;
-        _image = NULL;
+        _image = NULL; 
     }
+    
 }
-
 //// STUDENT CODE
 ////
+ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
+{
+    std::cout << "COPYING content of instance " << &source << " to instance " << this << std::endl;
+    // invalidate data handles
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
 
+    // load image into heap memory
+    _image = new wxBitmap();
+    *_image = *source._image;
+    
+}
+ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
+{
+    std::cout << "ASSIGNING content of instance " << &source << " to instance " << this << std::endl;
+    if (this == &source)
+        return *this;
+    delete _image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    _image = new wxBitmap();
+    *_image = *source._image;
+    return *this;
+}
+ChatBot::ChatBot(const ChatBot &&source)
+{
+    std::cout << "MOVING instance " << &source << " to instance " << this << std::endl;
+    _image = source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    source._image = NULL;
+    source._rootNode = nullptr;
+    source._chatLogic = nullptr;
+}
+ChatBot &ChatBot::operator=(const ChatBot &&source)
+{
+    std::cout << "MOVING (assign) instance " << &source << " to instance " << this << std::endl;
+    if (this == &source)
+        return *this;
+    delete _image;
+    _image = source._image;
+    _chatLogic = source._chatLogic;
+    _rootNode = source._rootNode;
+    source._image = NULL;
+    source._rootNode = nullptr;
+    source._chatLogic = nullptr;
+    return *this;
+}
 ////
 //// EOF STUDENT CODE
 
