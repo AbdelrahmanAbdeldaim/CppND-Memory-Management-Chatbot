@@ -30,52 +30,12 @@ wx/bitmap.h
 string
 -
 
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatgui.cpp
-wx/filename.h
--
-wx/colour.h
--
-wx/image.h
--
-string
--
-chatbot.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatbot.h
-chatlogic.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatlogic.h
-chatgui.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatgui.h
-
 /media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatgui.h
 wx/wx.h
 -
 memory
 -
 
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatlogic.cpp
-fstream
--
-sstream
--
-iostream
--
-vector
--
-iterator
--
-tuple
--
-algorithm
--
-graphedge.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphedge.h
-graphnode.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphnode.h
-chatbot.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatbot.h
-chatlogic.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatlogic.h
-
 /media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatlogic.h
 vector
 -
@@ -85,12 +45,6 @@ chatgui.h
 /media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/chatgui.h
 memory
 -
-
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphedge.cpp
-graphnode.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphnode.h
-graphedge.h
-/media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphedge.h
 
 /media/abdelrahman/New Volume/GitHub/CppND-Memory-Management-Chatbot/src/graphedge.h
 vector

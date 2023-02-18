@@ -14,17 +14,7 @@
 
 ChatLogic::ChatLogic()
 {
-    //// STUDENT CODE
-    ////
-
-    // create instance of chatbot
-    _chatBot = new ChatBot("../images/chatbot.png");
-
-    // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
-    _chatBot->SetChatLogicHandle(this);
-
-    ////
-    //// EOF STUDENT CODE
+    std::cout << "ChatLogic constructor" << std::endl;
 }
 
 ChatLogic::~ChatLogic()
@@ -164,9 +154,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
         return;
     }
 
-    //// STUDENT CODE
-    ////
-
     // identify root node
     GraphNode *rootNode = nullptr;
     for (auto it = std::begin(_nodes); it != std::end(_nodes); ++it)
@@ -193,8 +180,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     chatBotInstance.SetChatLogicHandle(this);
     chatBotInstance.SetRootNode(rootNode);
     rootNode->MoveChatbotHere(std::move(chatBotInstance));
-    
-    //// EOF STUDENT CODE
 }
 
 void ChatLogic::SetPanelDialogHandle(ChatBotPanelDialog *panelDialog)
@@ -215,6 +200,7 @@ void ChatLogic::SendMessageToChatbot(std::string message)
 void ChatLogic::SendMessageToUser(std::string message)
 {
     _panelDialog->PrintChatbotResponse(message);
+
 }
 
 wxBitmap *ChatLogic::GetImageFromChatbot()

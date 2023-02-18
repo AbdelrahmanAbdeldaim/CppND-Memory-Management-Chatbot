@@ -47,10 +47,9 @@ ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
     // invalidate data handles
     _chatLogic = source._chatLogic;
     _rootNode = source._rootNode;
-
+    _chatLogic->SetChatbotHandle(this);
     // load image into heap memory
-    _image = new wxBitmap();
-    *_image = *source._image;
+    _image = new wxBitmap(*source._image);
     
 }
 ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operator
@@ -60,9 +59,11 @@ ChatBot &ChatBot::operator=(const ChatBot &source) // 3 : copy assignment operat
         return *this;
     delete _image;
     _chatLogic = source._chatLogic;
+
     _rootNode = source._rootNode;
     _image = new wxBitmap();
     *_image = *source._image;
+    _chatLogic->SetChatbotHandle(this);
     return *this;
 }
 ChatBot::ChatBot(ChatBot &&source)
@@ -74,6 +75,7 @@ ChatBot::ChatBot(ChatBot &&source)
     source._image = NULL;
     source._rootNode = nullptr;
     source._chatLogic = nullptr;
+    _chatLogic->SetChatbotHandle(this);
 }
 ChatBot &ChatBot::operator=( ChatBot &&source)
 {
@@ -87,6 +89,7 @@ ChatBot &ChatBot::operator=( ChatBot &&source)
     source._image = NULL;
     source._rootNode = nullptr;
     source._chatLogic = nullptr;
+    _chatLogic->SetChatbotHandle(this);
     return *this;
 }
 
@@ -137,6 +140,7 @@ void ChatBot::SetCurrentNode(GraphNode *node)
 
     // send selected node answer to user
     _chatLogic->SendMessageToUser(answer);
+
 }
 
 int ChatBot::ComputeLevenshteinDistance(std::string s1, std::string s2)
