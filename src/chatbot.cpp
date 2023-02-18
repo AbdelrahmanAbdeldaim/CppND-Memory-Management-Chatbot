@@ -40,8 +40,7 @@ ChatBot::~ChatBot()
     }
     
 }
-//// STUDENT CODE
-////
+
 ChatBot::ChatBot(const ChatBot &source) // 2 : copy constructor
 {
     std::cout << "COPYING content of instance " << &source << " to instance " << this << std::endl;
@@ -90,8 +89,6 @@ ChatBot &ChatBot::operator=( ChatBot &&source)
     source._chatLogic = nullptr;
     return *this;
 }
-////
-//// EOF STUDENT CODE
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
